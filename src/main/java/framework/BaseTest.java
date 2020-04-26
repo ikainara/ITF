@@ -2,6 +2,7 @@ package framework;
 
 import core.BaseDriver;
 import core.BaseObject;
+import core.Verifier;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import web.GloConfig;
@@ -10,10 +11,10 @@ import web.GloConfig;
 public class BaseTest extends BaseObject {
     private BaseDriver driver;
     protected static GloConfig config;
-    protected Object clazz;
+    protected final Verifier verifier;
 
-    public BaseTest(Object clazz) {
-        this.clazz = clazz;
+    public BaseTest() {
+        verifier = new Verifier();
     }
 
     @BeforeSuite
@@ -36,7 +37,7 @@ public class BaseTest extends BaseObject {
     }
 
     private String getTestName() {
-        String[] test = ((Class) clazz).getName().toString().split("\\.");
+        String[] test = ((Class) String.class).getName().toString().split("\\.");
         return test[test.length-1];
     }
 

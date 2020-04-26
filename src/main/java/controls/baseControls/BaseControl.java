@@ -37,4 +37,12 @@ public abstract class BaseControl extends BaseControlWaiters implements IBaseCon
     public String getText(int timeoutSec) {
         return getAttribute("value", timeoutSec);
     }
+
+    public boolean isDisplayed(int timeoutSec) {
+        return driver.getDriver().findElement(BASE_LOCATOR).isDisplayed();
+    }
+
+    public boolean isDisplayed() {
+        return isDisplayed(DEFAULT_TIMEOUT);
+    }
 }

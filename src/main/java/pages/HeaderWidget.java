@@ -19,6 +19,11 @@ public class HeaderWidget extends BasePage {
         searchByDropdown = new ITF_ButtonDropdown(driver, "/button", BASE_XPATH + "//div[contains(@class, 'search-dropdown')]");
     }
 
+    @Override
+    public boolean isDisplayed() {
+        return searchTextbox.isDisplayed();
+    }
+
     public void searchBySMTHG(String searchFor, String searchBy) {
         searchByDropdown.selectElementByText(searchBy);
         searchTextbox.setText(searchFor);

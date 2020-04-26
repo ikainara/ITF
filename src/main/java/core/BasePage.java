@@ -9,7 +9,7 @@ public class BasePage {
         this.driver = driver;
     }
 
-    protected void isDisplayed() {
-
+    protected boolean isDisplayed() {
+        return true;
     }
 }
