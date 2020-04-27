@@ -1,19 +1,15 @@
-package testcases;
+package testcases.Login;
 
 import controls.ITF_Label;
 import framework.BaseTest;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
-import pages.HeaderWidget;
-import pages.LoginPage;
 
 public class SuccessfulLogin extends BaseTest {
 
-    @Test(groups = "default")
+    @Test(groups = "gr1")
     public void test() {
-        getDriver().navigateToURL(config.getServerURL().replaceAll("<URL>", "https://my.web.site.com"));
-        new LoginPage(getDriver()).login("user.name", "UserPassword");
-        HeaderWidget headerWidget = new HeaderWidget(getDriver());
+        loginHelper.login(getDriver(), "https://asdasdas.asdasd.com", "user.name", "pwd!");
         String str = new ITF_Label(getDriver(), By.xpath("//div[@class='profile-widget']//h2")).getText();
         verifier.verify(str, "Ihor Kainara", "Verify username is correct");
     }

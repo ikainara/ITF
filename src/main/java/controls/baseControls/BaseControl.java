@@ -4,6 +4,7 @@ import controls.interfaces.base.IBaseControlActions;
 import controls.interfaces.base.IBaseControlWaiters;
 import core.BaseDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
 public abstract class BaseControl extends BaseControlWaiters implements IBaseControlWaiters, IBaseControlActions {
 
@@ -44,5 +45,9 @@ public abstract class BaseControl extends BaseControlWaiters implements IBaseCon
 
     public boolean isDisplayed() {
         return isDisplayed(DEFAULT_TIMEOUT);
+    }
+
+    protected void pressButton(Keys key) {
+        driver.getDriver().findElement(BASE_LOCATOR).sendKeys(key);
     }
 }

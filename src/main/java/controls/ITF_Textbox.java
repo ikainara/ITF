@@ -3,6 +3,7 @@ package controls;
 import controls.baseControls.BaseControl;
 import core.BaseDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 public class ITF_Textbox extends BaseControl {
@@ -19,5 +20,9 @@ public class ITF_Textbox extends BaseControl {
 
     public void setText(String text) {
         textbox.sendKeys(text);
+    }
+
+    public void pressEnter() {
+        super.pressButton(Keys.ENTER);
     }
 }

@@ -27,6 +27,7 @@ public class HeaderWidget extends BasePage {
     public void searchBySMTHG(String searchFor, String searchBy) {
         searchByDropdown.selectElementByText(searchBy);
         searchTextbox.setText(searchFor);
-        searchButton.click();
+        searchTextbox.pressEnter();
+        //searchButton.click();
     }
 }
